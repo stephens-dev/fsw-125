@@ -4,9 +4,9 @@ const {v4: uuidv4} = require("uuid")
 
 
 const bounties = [
-   { firstName: "Darth", lastName: "Skorn", Living: true, bounty: 20200, type: "Sith", _id: uuidv4() },
-   { firstName: "Darth", lastName: "Maul", Living: true, bounty: 40000, type: "Sith", _id: uuidv4() },
-   { firstName: "Avix", lastName: "Mavr", Living: true, bounty: 8000, type: "Jedi", _id: uuidv4() }
+   { firstName: "Darth", lastName: "Skorn", Living: true, Bounty: 20200, Type: "Sith", _id: uuidv4() },
+   { firstName: "Darth", lastName: "Maul", Living: true, Bounty: 40000, Type: "Sith", _id: uuidv4() },
+   { firstName: "Avix", lastName: "Mavr", Living: true, Bounty: 8000, Type: "Jedi", _id: uuidv4() }
 ]
 bountiesRouter.route("/:bountiesId")
 .get((req, res) => {
@@ -19,7 +19,7 @@ bountiesRouter.route("/:bountiesId")
     const updateBounty = req.body
     const bountyIndex = bounties.findIndex(bounty => bounty._id === bountyId)
     const updatedBounty = Object.assign(bounties[bountyIndex], updateBounty)
-    res.send("Updated")
+    res.send(updatedBounty)
 })
 .delete((req, res) => {
     const bountyId = req.params.bountiesId
@@ -37,7 +37,7 @@ bountiesRouter.route("/")
         const newBounty = req.body
         newBounty._id = uuidv4()
         bounties.push(newBounty)
-        res.send('Added ${newBounty} ')
+        res.send(newBounty)
     })
    
 
