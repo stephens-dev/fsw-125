@@ -1,0 +1,81 @@
+.App {
+  text-align: center;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: #ccc;
+}
+ 
+.nav ul {
+  display: flex;
+  justify-content: space-around;
+  list-style: none;
+  background-color: #444;
+  /* text-align: center; */
+  padding: 0;
+  margin: 0;
+  overflow: auto;
+    width: 600px;
+    margin: 0 auto;
+}
+.nav li {
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.2em;
+  line-height: 40px;
+  height: 40px;
+  border-bottom: 1px solid #888;
+  float: left;
+  
+}
+ 
+.nav a {
+  text-decoration: none;
+  color: #fff;
+  display: block;
+  transition: .3s background-color;
+}
+ 
+.nav a:hover {
+  background-color: #005f5f;
+}
+ 
+.nav a.active {
+  background-color: #fff;
+  color: #444;
+  cursor: default;
+}
+.nav {
+  background-color: #444;
+}
+.addmovie{
+  margin: 10px;
+}
+ ul {
+  list-style: none;
+}
+.display {
+  display: flex;
+  flex-direction: column;
+  border: black solid 1px;
+  width: 200px;
+  text-align: left;
+  margin-left: 33em;
+  margin-bottom: 2em;
+}
+.buttons {
+  margin-left: 3em;
+}
+/* .home {
+  background: url("https://techpp.com/wp-content/uploads/2013/05/digital-media-music-video-picture-movie-organizer-1-1200x750.jpeg");
+} */
+/*  
+@media screen and (min-width: 600px) {
+  .nav li {
+    width: 120px;
+    border-bottom: none;
+    height: 50px;
+    line-height: 50px;
+    font-size: 1.4em;
+  } */
