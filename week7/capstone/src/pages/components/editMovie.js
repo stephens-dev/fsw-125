@@ -17,7 +17,7 @@ function Movie(props) {
                     Genre: {props.genre}
                 </li>
                 <li>
-                    Times Seen: {props.seen}
+                    Times Seen: {props.seen.toString()}
                 </li>
                 <li>
                     Watched: {props.watched

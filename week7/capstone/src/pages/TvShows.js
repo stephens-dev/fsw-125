@@ -11,6 +11,7 @@ function TvShows() {
     function initPull() {
         Axios.get("/tvshows")
                 .then(res => {
+                    console.log(res.data)
                     setShows(res.data)
                 }).catch(err => console.log(err))
             }
@@ -19,6 +20,9 @@ function TvShows() {
             }, [])
 
         function addShow(newShow) {
+            if(newShow.seen === "false"){
+                newShow.seen = false
+            }else {newShow.seen = true}
             axios.post("/tvshows",newShow)
             .then(res => {
                 setShows(prevShows => [...prevShows,res.data])})

@@ -5,7 +5,7 @@ import React, {useState} from 'react'
  function MovieForm(props) {
     const initInputs = {title: props.title || "",
                         genre: props.genre || "",
-                        seen: props.genre || "",
+                        seen: props.seen ,
                         watched: props.watched || ""}
     const [inputs, setInputs] = useState(initInputs)
 
@@ -36,13 +36,13 @@ import React, {useState} from 'react'
             onChange={handleChange}
             placeholder="Genre" />
             <input
-            type="number"
+            type="boolean"
             name="seen"
             value={inputs.seen}
             onChange={handleChange}
             placeholder="Seen" />
             <input
-            type="text"
+            type="number"
             name="watched"
             value={inputs.watched}
             onChange={handleChange}

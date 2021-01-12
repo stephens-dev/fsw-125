@@ -19,6 +19,9 @@ function Movies() {
             }, [])
 
         function addMovie(newMovie) {
+            if (newMovie.seen === "false") {
+                newMovie.seen = false
+            }else {newMovie.seen = true}
             axios.post("/Movies",newMovie)
             .then(res => {
                 setMovies(prevMovies => [...prevMovies,res.data])})

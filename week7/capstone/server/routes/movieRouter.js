@@ -5,12 +5,12 @@ const {v4: uuidv4} = require("uuid")
 
 
 const movies = [
-    {title: "Die Hard", genre: "Action", seen: 3, watched: true, _id: uuidv4() },
-    {title: "Conjuring", genre: "Horror", seen: 1, watched: true, _id: uuidv4() },
-    {title: "Mulan", genre: "Fantasy", seen: 0, watched: false, _id: uuidv4() },
-    {title: "Harry Potter and the Chamber of Secrets", genre: "Fantasy", seen: 1, watched: true, _id: uuidv4() },
-    {title: "Star Wars IV", genre: "SIFI", seen: 0, watched: false, _id: uuidv4() },
-    {title: "White Chicks", genre: "Comedy", seen: 2, watched: true, _id: uuidv4() }
+    {title: "Die Hard", genre: "Action", seen: true, watched: 3, _id: uuidv4() },
+    {title: "Conjuring", genre: "Horror", seen: true, watched: 2, _id: uuidv4() },
+    {title: "Mulan", genre: "Fantasy", seen: false, watched: 1, _id: uuidv4() },
+    {title: "Harry Potter and the Chamber of Secrets", genre: "Fantasy", seen: false, watched: 1, _id: uuidv4() },
+    {title: "Star Wars IV", genre: "SIFI", seen: true, watched: 2, _id: uuidv4() },
+    {title: "White Chicks", genre: "Comedy", seen: false, watched: 4, _id: uuidv4() }
 
 ]
 
@@ -40,7 +40,7 @@ moviesRouter.route("/:moviesId")
         const updateMovie = req.body
         const movieIndex = movies.findIndex(movie => movie._id === movieId)
         const updatedMovie = Object.assign(movies[movieIndex], updateMovie)
-        res.status(201).send(`${updatedMovie.title} Has been Updated`)
+        res.status(201).send(updatedMovie)
     })
     .delete((req, res) => {
         const movieId = req.params.moviesId
@@ -58,7 +58,7 @@ moviesRouter.route("/")
         const newMovie = req.body
         newMovie._id = uuidv4()
         movies.push(newMovie)
-        res.status(201).send(`${newMovie.title} Has been Added`)
+        res.status(201).send(newMovie)
     })
 
 

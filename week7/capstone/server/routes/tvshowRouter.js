@@ -6,10 +6,10 @@ const {v4: uuidv4} = require("uuid")
 const tvshows = [
     {title: "Game of Thrones", genre: "Fantasy",seen: false, watched: 2, _id: uuidv4()},
     {title: "Supernatural", genre: "Sifi",seen: false, watched: 2, _id: uuidv4()},
-    {title: "Arrow", genre: "Action",seen: false, watched: 2, _id: uuidv4()},
-    {title: "Clone Wars", genre: "Sifi", _id: uuidv4()},
+    {title: "Arrow", genre: "Action",seen: true, watched: 2, _id: uuidv4()},
+    {title: "Clone Wars", genre: "Sifi", seen: true, watched: 1, _id: uuidv4()},
     {title: "Stargate SG-1", genre: "Sifi",seen: false, watched: 2, _id: uuidv4()},
-    {title: "Seal", genre: "Action",seen: false, watched: 2, _id: uuidv4()}
+    {title: "Seal", genre: "Action",seen: true, watched: 2, _id: uuidv4()}
 
 ]
 // Search by genre //
@@ -30,7 +30,7 @@ tvshowsRouter.route("/:tvshowsId")
     const updatetvshow = req.body
     const tvshowIndex = tvshows.findIndex(tvshow => tvshow._id === tvshowId)
     const updatedtvshow = Object.assign(tvshows[tvshowIndex], updatetvshow)
-    res.send(`${updatedtvshow.title} Has been Updated`)
+    res.send(updatedtvshow)
     })
     .delete((req, res) => {
         const tvshowId = req.params.tvshowsId
@@ -47,7 +47,7 @@ tvshowsRouter.route("/")
         const newTvShow = req.body
         newTvShow._id = uuidv4()
         tvshows.push(newTvShow)
-        res.send(`${newTvShow.title} Has been Added`)
+        res.send(newTvShow)
     })
 
     module.exports = tvshowsRouter
